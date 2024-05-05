@@ -9,16 +9,28 @@ const Login = () => {
 
   const email = useRef(null);
   const password = useRef(null);
-  const name = useRef(null)
+  const name = useRef(null);
 
   const handleButtonClick = () => {
     // Validate the form Data
 
-
-    const message = checkValidData( name.current.value, email.current.value, password.current.value);
+    const message = checkValidData(
+      name.current.value,
+      email.current.value,
+      password.current.value
+    );
     setErrorMessage(message);
 
+  
+    if (message) return;
+    // signIn signUp logic
+    if(!isSignInForm){
+      // sign Up logic
 
+    }
+    else {
+      // sign In Logic
+    }
   };
 
   const toggleSignInFrom = () => {
@@ -40,7 +52,7 @@ const Login = () => {
         </h1>
         {!isSignInForm && (
           <input
-          ref={name}
+            ref={name}
             type="text"
             placeholder="Enter Name"
             className="p-4 my-4 w-full bg-gray-700 rounded-lg"
